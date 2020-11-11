@@ -1,0 +1,33 @@
+<h1>All our flats (<%= @flats.count %>)</h1>
+<%# <ul> %>
+<% @flats.each do |flat| %>
+  <div class="container">
+    <div class="card">
+      <%= flat.name %>
+      </br>
+      <%= flat.address %>  
+      </br>
+      </br>
+      <i class="fas fa-user-friends"> <%= flat.number_of_guests %></i>
+      <i class="fas fa-euro-sign"> <%= flat.price_per_night %></i>
+      </br>
+      <%= link_to "More info", flat_path(flat.id), style: "color:blue" %>
+      <%= link_to "Edit", edit_flat_path(flat.id), style: "color:yellow" %> 
+      <%= link_to "Remove", flat_path(flat.id), method: :delete, data: { confirm: "Are you sure?" }, style: "color:red" %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Add flat", new_flat_path %>
+
+<%# 
+<div class="card-trip mb">
+        <img class="card-trip-top" src="https://source.unsplash.com/random" alt="">
+        <img class ="card-trip-avatar" src="https://source.unsplash.com/random" alt="">
+        <div class="card-trip-bottom">
+          <div class="card-trip-bottom-title-desc">
+            <h2>Title here</h2>
+            <p>Short description here!</p>
+          </div>
+          <h2>£99.99</h2>
+        </div>
+      </div> %>
